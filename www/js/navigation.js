@@ -2,10 +2,7 @@ angular
   .module('starter.navigation', ['ngMaterial'])
   .controller('AppCtrl', function ($scope, $timeout, $mdSidenav, $log) {
     $scope.toggleLeft = buildDelayedToggler('left');
-    $scope.toggleRight = buildToggler('right');
-    $scope.isOpenRight = function(){
-      return $mdSidenav('right').isOpen();
-    };
+    
     /**
      * Supplies a function that will continue to operate until the
      * time is up.
@@ -50,14 +47,6 @@ angular
       $mdSidenav('left').close()
         .then(function () {
           $log.debug("close LEFT is done");
-        });
-    };
-  })
-  .controller('RightCtrl', function ($scope, $timeout, $mdSidenav, $log) {
-    $scope.close = function () {
-      $mdSidenav('right').close()
-        .then(function () {
-          $log.debug("close RIGHT is done");
         });
     };
   });
