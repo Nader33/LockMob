@@ -17,7 +17,11 @@
             url: "/view3",
             templateUrl: "partials/view3.html"
         })
-        ;
+        .state('home', {
+            url:"/home",
+            templateUrl: "templates/home.html"
+            
+        });
     })
     .run(function($rootScope, PrimaryAction){
       $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
