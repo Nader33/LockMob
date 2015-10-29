@@ -40,30 +40,78 @@
 
   <body ng-app="starter">
       
-      <ion-modal-view>
-  <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
-  </ion-header-bar>
-  <ion-content>
-    <form ng-submit="doLogin()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
-        </label>
+     <div layout="column" data-ng-controller="AppCtrl">
+         
+         <md-toolbar layout="row">
+             <div class="md-toolbar-tools" flex>
+                 <h1>Lock-Key</h1>
+             </div>
+         </md-toolbar>
+         
+         <div style="heigt: 40px;"></div>
+         
+         <div layout ="row">
+            <div flex=20 hide-sm></div>
+            <div flex>
+                
+                <md-card>
+                    <md-toolbar>
+                        <div class="md-toolbar-tools">
+                            <h2 class="md-flex">Login / Register</h2>
+                        </div>
+                    </md-toolbar>
+                    <md-card-content>
+                        
+                        <md-tabs md-dynamic-height md-border-bottom>
+                            <md-tab label="Login">
+                                <form ng-submit="">
+                                    <md-input-container>
+                                        <label>E-mail</label>
+                                        <input type="email" required>
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Password</label>
+                                        <input type="password" required>
+                                    </md-input-container>
+                                    <md-butoon class="md-raised md-primary" type="submit">
+                                    Se connecter
+                                    </md-butoon>
+                                </form>
+                            </md-tab>
+                            <md-tab label="Register">
+                                <form ng-submit="" name="">
+                                    <md-input-container>
+                                        <label>E-mail</label>
+                                        <input type="email" ng-model="email" ng-model="email.text" required>
+                                    </md-input-container>
+                                    <md-input-container>
+                                        <label>Password</label>
+                                        <input type="password" ng-model="password" required name ="password" md-maxlenght="20" minlength="8">
+                                        <div>
+                                            <div ng-message="minlenght"> 
+                                            Le mot de passe doit faire au minimun 8 caractère
+                                            </div>
+                                        </div>
+                                    </md-input-container>
+                                     <md-input-container>
+                                        <label>UserName</label>
+                                        <input type="text" required>
+                                    </md-input-container>
+                                    <md-butoon class="md-raised md-primary" type="submit">
+                                    Se connecter
+                                    </md-butoon>
+                                </form>
+                            </md-tab>
+                        </md-tabs>
+                        
+                    </md-card-content>
+                </md-card>
+                    
+            </div>
+            <div flex=20 hide-sm></div>
+         </div>
       </div>
-    </form>
-  </ion-content>
-</ion-modal-view>
+      
   </body>
+
 </html>
