@@ -1,81 +1,68 @@
-(function(angular, undefined) {
-    "use strict";
-    angular.module('starter.router', ['ngMaterial', "ui.router"])
-    .config(function($stateProvider, $urlRouterProvider) {
+angular.module('starter.router', [])
 
-        $urlRouterProvider.otherwise('/tab/dash');
-        $stateProvider
-        .state('view1', {
-            url: "/view1",
-            templateUrl: "partials/view1.html"
-        })
-        .state('view2', {
-            url: "/view2",
-            templateUrl: "partials/view2.html"
-        })
-        .state('view3', {
-            url: "/view3",
-            templateUrl: "partials/view3.html"
-        })
-        .state('home', {
-            url:"/home",
-            templateUrl: "templates/home.html"
-            
-        });
-    })
-    .run(function($rootScope, PrimaryAction){
-      $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-        console.log(toState.name)
-        switch (toState.name) {
-          case 'view1':
-            return PrimaryAction.show();
-          case 'view2':
-            return PrimaryAction.hide();
-          case 'view3':
-            return PrimaryAction.show();
-          default:
-            return PrimaryAction.hide();
-        }
-      });
-    })
-    .controller('tabCtrl', function($scope, $location, $log, $state) {
-        $scope.selectedIndex = 0;
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-        $scope.$watch('selectedIndex', function(current, old) {
-            switch (current) {
-                case 0:
-                    $location.url("/view1");
-                    break;
-                case 1:
-                    $location.url("/view2");
-                    break;
-                case 2:
-                    $location.url("/view3");
-                    break;
+    // Turn off caching for demo simplicity's sake
+    $ionicConfigProvider.views.maxCache(0);
+
+    /*
+     // Turn off back button text
+     $ionicConfigProvider.backButton.previousTitleText(false);
+     */
+
+    $stateProvider.state('app', {
+        url: '/app',
+        abstract: true,
+        templateUrl: 'templates/menu.html',
+        controller: 'AppCtrl'
+    })
+
+        .state('app.login', {
+            url: '/login',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/login.html',
+                    controller: 'LoginCtrl'
+                },
+                'fabContent': {
+                    template: ''
+                }
             }
-        });
-    })
-    .directive('primaryActionButton', function(){
-      return {
-        restrict: 'E',
-        template:  ['<md-button ng-show="primaryAction.visible" class="md-fab md-fab-bottom-right" aria-label="Add" ng-click="primaryAction.mainAction()">',
-  'ADD',
-'</md-button>'].join(''),
-        controller: function($scope, PrimaryAction) {
-          $scope.primaryAction = PrimaryAction;
-        }
-      };
-    })
-    .service('PrimaryAction', function(){
-      this.visible = false;
-      this.show = function() {
-        this.visible = true;
-      }
-      this.hide = function() {
-        this.visible = false;
-      }
+        })
 
-    });
+        .state('app.logout', {
+            url: '/login/:logout',
+            views: {
+                'menuContent': {
+                    templateUrl: '',
+                    controller: 'LoginCtrl'
+                },
+                'fabContent': {
+                    template: ''
+                }
+            }
+        })
 
-})(angular);
+        .state('app.home', {
+            url: '/',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/home.html',
+                    controller: 'HomeCtrl'
+                },
+                'fabContent': {
+                    template: '<button id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900"><i class="icon ion-plus"></i></button>',
+                    controller: function ($timeout) {
+                        /*$timeout(function () {
+                         document.getElementById('fab-profile').classList.toggle('on');
+                         }, 800);*/
+                    }
+                }
+            },
+            authenticate: true
+        })
+    ;
 
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/app/login');
+});
