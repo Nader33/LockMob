@@ -8,9 +8,4 @@ angular.module('starter.service', ['starter.controllers.loginCtrl'])
             return $http.post(urlBase + 'login', params );
         };
 
-        this.logout = function (params) {
-
-            return $http.post(urlBase + 'logout', params );
-        };
-
     }]);

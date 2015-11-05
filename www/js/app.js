@@ -20,6 +20,12 @@ angular.module('starter', [ 'ionic','starter.controllers', 'ionic-material', 'io
     });
     $rootScope.$on('$stateChangeStart', function(e, toState, toParams, fromState, fromParams) {
 
+        // if user attempt to login but he's already authenticated => redirect to home
+        if(toState.name == "app.login" && window.localStorage.getItem("authenticated")){
+            e.preventDefault();
+            $state.go('app.home');
+        }
+
         if(toState.authenticate == true && window.localStorage.getItem("authenticated") != 1){
 
             e.preventDefault();

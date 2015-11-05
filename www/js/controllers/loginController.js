@@ -23,7 +23,7 @@ angular.module('starter.controllers.loginCtrl', [])
 
                     $scope.message = '';
 
-                    $state.go('app.profile');
+                    $state.go('app.home');
 
                 }).error(function(res){
                     $scope.message = res.err;
@@ -37,34 +37,30 @@ angular.module('starter.controllers.loginCtrl', [])
 
             if($scope.isLoggedIn())
             {
-                authService.logout($scope.user).success(function(res){
+                window.localStorage.removeItem("user");
+                window.localStorage.removeItem("authenticated");
 
-                    window.localStorage.removeItem("user");
-                    window.localStorage.removeItem("authenticated");
+                $scope.message = '';
 
-                    $scope.message = '';
+                $state.go('app.home');
 
-                    $state.go('app.login');
-
-                }).error(function(res){
-                    $scope.message = res.err;
-                });
             }
         };
 
         $scope.isLoggedIn = function() {
-            console.log('already connected', window.localStorage.getItem("user") , window.localStorage.getItem("authenticated"));
             if(window.localStorage.getItem("user") !== undefined && window.localStorage.getItem("authenticated") == 1) {
+                console.log('already connected', window.localStorage.getItem("user") , window.localStorage.getItem("authenticated"));
+
                 return true;
             } else {
                 return false;
             }
         };
 
-       /* if($scope.isLoggedIn()){
-
-            $state.go('app.profile');
-        }*/
+       //if($scope.isLoggedIn()){
+       //
+       //     $state.go('app.home');
+       // }
 
 
         console.log('onENter event', $stateParams);
