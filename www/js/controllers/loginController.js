@@ -4,6 +4,7 @@ angular.module('starter.controllers.loginCtrl', [])
 
         $scope.user = {
             email: '',
+            username: '',
             password: ''
         };
         $scope.message = "";
@@ -47,6 +48,26 @@ angular.module('starter.controllers.loginCtrl', [])
             }
         };
 
+        $scope.register = function(){
+
+            console.log('register', $scope.user);
+
+            if(!$scope.isLoggedIn())
+            {
+                console.log('attempt to register');
+
+                authService.register($scope.user).success(function(res){
+
+                    $scope.message = "L'inscription a été prise en compte";
+
+                    $state.go('app.login');
+
+                }).error(function(res){
+                    $scope.message = res.err;
+                });
+            }
+        };
+
         $scope.isLoggedIn = function() {
             if(window.localStorage.getItem("user") !== undefined && window.localStorage.getItem("authenticated") == 1) {
                 console.log('already connected', window.localStorage.getItem("user") , window.localStorage.getItem("authenticated"));
@@ -57,16 +78,7 @@ angular.module('starter.controllers.loginCtrl', [])
             }
         };
 
-       //if($scope.isLoggedIn()){
-       //
-       //     $state.go('app.home');
-       // }
-
-
-        console.log('onENter event', $stateParams);
-
         if ($stateParams['logout'] == 'logout'){
-            console.log('sors !!!');
             $scope.logout();
         }
 

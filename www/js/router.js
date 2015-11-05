@@ -29,6 +29,18 @@ angular.module('starter.router', [])
                 }
             }
         })
+        .state('app.register', {
+                    url: '/register',
+                    views: {
+                        'menuContent': {
+                            templateUrl: 'templates/register.html',
+                            controller: 'LoginCtrl'
+                        },
+                        'fabContent': {
+                            template: ''
+                        }
+                    }
+                })
 
         .state('app.logout', {
             url: '/login/:logout',
