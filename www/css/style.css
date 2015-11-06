@@ -59,3 +59,7 @@ p {
 .menu-open .ion-navicon:before {
     content: "\f2ca";
 }
+
+.hero>.content {
+    top: 18%;
+}
