@@ -1,6 +1,6 @@
-angular.module('starter.controllers.homeCtrl', [])
+angular.module('starter.controllers.LockCtrl', [])
 
-    .controller('LockCtrl', function($scope, $rootScope, authService, $state, $timeout, $stateParams, ionicMaterialInk, ionicMaterialMotion) {
+    .controller('LockCtrl', function($scope, $rootScope, $state, $timeout, $stateParams, ionicMaterialInk, ionicMaterialMotion, Locks) {
 
         // Set Header
         $scope.$parent.showHeader();
@@ -8,6 +8,15 @@ angular.module('starter.controllers.homeCtrl', [])
         $scope.isExpanded = false;
         $scope.$parent.setExpanded(false);
         $scope.$parent.setHeaderFab(false);
+
+
+        var locks = Locks.query(function(){
+            $scope.locks = locks;
+            console.log('LOCKS',$scope.locks);
+        });
+
+        $scope.locks = new Locks();
+
 
         // Set Motion
         $timeout(function () {
@@ -21,9 +30,6 @@ angular.module('starter.controllers.homeCtrl', [])
                 startVelocity: 3000
             });
         }, 700);
-
-
-
 
         // Set Ink
         ionicMaterialInk.displayEffect();
