@@ -63,7 +63,26 @@ angular.module('starter.router', [])
                     controller: 'HomeCtrl'
                 },
                 'fabContent': {
-                    template: '<button id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-plus"></i></button>',
+                    template: '<button id="fab-profile" ng-controller="HomeCtrl" ng-click="goToAddLock()" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-plus"></i></button>',
+                    controller: function ($timeout) {
+                        $timeout(function () {
+                            //console.log(document.getElementById('fab-profile').classList);
+                            document.getElementById('fab-profile').classList.toggle('on');
+                         }, 800);
+                    }
+                }
+            },
+            authenticate: true
+        })
+        .state('app.add_lock', {
+            url: '/add_lock',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/add_lock.html',
+                    controller: 'LockCtrl'
+                },
+                'fabContent': {
+                    template: '<a ui-sref="app.add_lock" id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-plus"></i></a>',
                     controller: function ($timeout) {
                         /*$timeout(function () {
                          document.getElementById('fab-profile').classList.toggle('on');

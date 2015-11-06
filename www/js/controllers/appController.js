@@ -10,6 +10,15 @@ angular.module('starter.controllers', ['starter.controllers.loginCtrl'])
         $scope.hasHeaderFabLeft = false;
         $scope.hasHeaderFabRight = false;
 
+        //TODO: use loggedIn from loginCtrl instead
+        $scope.isLoggedIn = function() {
+            if(window.localStorage.getItem("user") !== undefined && window.localStorage.getItem("authenticated") == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         var navIcons = document.getElementsByClassName('ion-navicon');
         for (var i = 0; i < navIcons.length; i++) {
             navIcons.addEventListener('click', function() {

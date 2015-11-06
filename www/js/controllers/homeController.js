@@ -9,7 +9,11 @@ angular.module('starter.controllers.homeCtrl', [])
         $scope.$parent.setExpanded(false);
         $scope.$parent.setHeaderFab(false);
 
-        //console.log('api', AppSettings.baseApiUrl);
+        $scope.goToAddLock = function(){
+
+            $state.go('app.add_lock');
+        };
+
 
         // Set Motion
         $timeout(function () {

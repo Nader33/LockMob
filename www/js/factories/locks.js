@@ -4,7 +4,7 @@ angular.module('starter.factory', [])
 
         return $resource(urlBase + 'locks', {}, {
             query: { method: 'GET', isArray: true },
-            create: { method: 'POST' }
+            //create: { method: 'POST' }
         })
     })
     .factory('Lock', function($resource, constantService){
