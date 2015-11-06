@@ -6,15 +6,15 @@
             </div>
         </div>
         <div class="padding">
-            <span style="color: red">{{message}}</span>
+            <div class="item item-divider">{{message}}</div>
             <div class="list">
                 <ion-md-input placeholder="Email" highlight-color="balanced" type="text" ng-model="user.email"></ion-md-input>
-                <ion-md-input placeholder="Password" highlight-color="energized" type="password" ng-model="user.password"></ion-md-input>
+                <ion-md-input placeholder="Password" highlight-color="balanced" type="password" ng-model="user.password"></ion-md-input>
             </div>
         </div>
-        <div class="padding">
-            <button ng-click="login()" class="button button-full button-assertive ink">Login</button>
-            <button ui-sref="app.register" class="button button-full button-assertive ink" style="background-color: #a7cb00" >Register</button>
+        <div class="padding loginbutton">
+            <button ng-click="login()" class="button button-full button-assertive ink" style="background-color: rgb(207,0,73)">Login</button>
+            <button ui-sref="app.register" class="button button-full button-assertive ink" style="background-color: rgb(23,180,148)" >Register</button>
         </div>
     </ion-content>
 </ion-view>

@@ -31,7 +31,7 @@ p {
 }
 
 .menu-open .bar.bar-header.expanded {
-    background-color: #222;
+    background-color: rgb(23,180,148);
 }
 
 .menu h2 {
@@ -74,3 +74,37 @@ p {
     padding-top: 8px;
 }
 
+.item-md-label .input-label {
+    color: black;
+}
+
+.item.item-divider{
+    text-align: center;
+    height: 40px;
+    color: rgb(207,0,73);
+}
+
+.hero.no-header{
+    height: 200px;
+}
+
+div.loginbutton{
+    margin-top: 7%;
+}
+
+.bar-header{
+    background-color: rgb(23,180,148);
+    /*rouge: (207,0,73);*/
+}
+
+.button-fab{
+    background-color: rgb(207,0,73);
+}
+
+.icon<.ion-settings{
+    height: 15px;
+}
+
+.item-complex .item-content{
+    padding: 16px 16px 16px 16px;
+}
