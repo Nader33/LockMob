@@ -55,20 +55,20 @@ angular.module('starter.router', [])
             }
         })
 
-        .state('app.home', {
-            url: '/',
+        .state('app.locks', {
+            url: '/locks',
             views: {
                 'menuContent': {
-                    templateUrl: 'templates/home.html',
-                    controller: 'HomeCtrl'
+                    templateUrl: 'templates/locks.html',
+                    controller: 'LockCtrl'
                 },
                 'fabContent': {
-                    template: '<button id="fab-profile" ng-controller="HomeCtrl" ng-click="goToAddLock()" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-plus"></i></button>',
+                    template: '<button id="fab-profile" ng-controller="LockCtrl" ng-click="goToAddLock()" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-plus"></i></button>',
                     controller: function ($timeout) {
                         $timeout(function () {
                             //console.log(document.getElementById('fab-profile').classList);
                             document.getElementById('fab-profile').classList.toggle('on');
-                         }, 800);
+                        }, 800);
                     }
                 }
             },
@@ -87,6 +87,22 @@ angular.module('starter.router', [])
                         /*$timeout(function () {
                          document.getElementById('fab-profile').classList.toggle('on');
                          }, 800);*/
+                    }
+                }
+            },
+            authenticate: true
+        })
+        .state('app.logs', {
+            url: '/logs',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/logs.html',
+                    controller: 'LogCtrl'
+                },
+                'fabContent': {
+                    template: '',
+                    controller: function ($timeout) {
+
                     }
                 }
             },

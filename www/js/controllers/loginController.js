@@ -25,7 +25,7 @@ angular.module('starter.controllers.loginCtrl', [] )
 
                     $scope.message = '';
 
-                    $state.go('app.home');
+                    $state.go('app.locks');
 
                 }).error(function(res){
                     $scope.message = res.err;
@@ -43,7 +43,7 @@ angular.module('starter.controllers.loginCtrl', [] )
 
                 $scope.message = '';
 
-                $state.go('app.home');
+                $state.go('app.locks');
 
             }
         };

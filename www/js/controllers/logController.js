@@ -1,6 +1,6 @@
-angular.module('starter.controllers.LockCtrl', [])
+angular.module('starter.controllers.LogCtrl', [])
 
-    .controller('LockCtrl', function($scope, $rootScope, $state, $timeout, $stateParams, ionicMaterialInk, ionicMaterialMotion, Locks, Lock) {
+    .controller('LogCtrl', function($scope, $rootScope, $state, $timeout, $stateParams, ionicMaterialInk, ionicMaterialMotion, Logs, Log) {
 
         // Set Header
         $scope.$parent.showHeader();
@@ -9,37 +9,32 @@ angular.module('starter.controllers.LockCtrl', [])
         $scope.$parent.setExpanded(false);
         $scope.$parent.setHeaderFab(false);
 
-        $scope.goToAddLock = function(){
-
-            $state.go('app.add_lock');
-        };
-
         $scope.data = {
             buttonText: 'Ajouter une serrure'
         };
 
-        var locks = Locks.query(function(){
-            $scope.locks = locks;
+        var logs = Logs.query(function(){
+            $scope.logs = logs;
         });
 
-        //$scope.locks = new Locks();
-        $scope.lock = new Lock();
+        //$scope.logs = new Logs();
+        $scope.lock = new Log();
 
         $scope.create = function(lock){
             //$ionicListDelegate.$getByHandle('lock-list').showReorder(true);
             if(lock.id){
                 $scope.lock.$update(function(){
-                    $scope.lock = new Lock();
+                    $scope.lock = new Log();
 
                 });
-                $state.go('app.locks');
+                $state.go('app.logs');
             }else{
                 $scope.lock.$save(function(){
-                    $scope.locks.push(lock);
+                    $scope.logs.push(lock);
                     console.log('lock saved');
-                    $scope.lock = new Lock();
+                    $scope.lock = new Log();
                 });
-                $state.go('app.locks');
+                $state.go('app.logs');
             }
         };
 
