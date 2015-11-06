@@ -1,35 +1,36 @@
 <ion-view view-title="Home">
     <ion-content ng-class="{expanded:$scope.isExpanded}">
-        <div class="hero slide-up" style="">
+        <!--<div class="hero slide-up" style="">
             <div class="content">
                 <div class="avatar" style=""></div>
                 <h3><a class="light">Page d'accueil</a></h3>
                 <h4></h4>
             </div>
-        </div>
+        </div>-->
         <div class="tabs tabs-dark tabs-icon-top static">
             <a ui-sref="app.activity" class="tab-item">
-                <i class="icon ion-arrow-graph-up-right"></i> Notifications
+                <i class="icon ion-ios-bell" ></i> Notifications
             </a>
             <a ui-sref="app.friends" class="tab-item">
-                <i class="icon ion-android-people"></i> Serrures
+                <i class="icon ion-key"></i> Serrures
             </a>
             <a ui-sref="app.gallery" class="tab-item">
-                <i class="icon ion-images"></i> Utilisateurs
+                <i class="icon ion-person"></i> Utilisateurs
             </a>
         </div>
 
         <div class="list animate-fade-slide-in-right">
-            <a ui-sref="app.locks" class="item item-avatar item-icon-right">
+            <a ui-sref="app.locks" class="item item-lock item-icon-right">
                 <h2>Porte d'entrée</h2>
                 <p>Pour le chien</p>
-                <i class="icon muted">Ouvert</i>
+                <i class="icon ion-unlocked"></i>
             </a>
-            <a ui-sref="app.locks" class="item item-avatar item-icon-right">
+            <a ui-sref="app.locks" class="item item-lock item-icon-right">
                 <h2>Serrure 2</h2>
                 <p></p>
-                <i class="icon muted">Fermé</i>
+                <i class="icon ion-locked"></i>
             </a>
         </div>
+
     </ion-content>
 </ion-view>

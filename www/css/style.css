@@ -59,3 +59,14 @@ p {
 .menu-open .ion-navicon:before {
     content: "\f2ca";
 }
+
+.item-lock{
+    padding: 25px;
+}
+
+.tabs-dark{
+
+    height: 58px;
+    padding-top: 8px;
+}
+
