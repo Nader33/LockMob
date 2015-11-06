@@ -74,3 +74,20 @@ p {
     padding-top: 8px;
 }
 
+.item-md-label .input-label {
+    color: black;
+}
+
+.item.item-divider{
+    text-align: center;
+    height: 40px;
+    color: rgb(207,0,73);
+}
+
+.hero.no-header{
+    height: 200px;
+}
+
+div.loginbutton{
+    margin-top: 7%;
+}
