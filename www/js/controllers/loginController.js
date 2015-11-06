@@ -1,4 +1,4 @@
-angular.module('starter.controllers.loginCtrl', [])
+angular.module('starter.controllers.loginCtrl', [] )
 
     .controller('LoginCtrl', function($scope, $rootScope, authService, $state, $timeout, $stateParams, ionicMaterialInk) {
 

@@ -19,16 +19,14 @@
             </a>
         </div>
 
-        <div class="list animate-fade-slide-in-right">
+        <div class="list animate-fade-slide-in-right" ng-controller="LockCtrl">
             <a ui-sref="app.locks" class="item item-avatar item-icon-right">
-                <h2>Porte d'entrée</h2>
-                <p>Pour le chien</p>
-                <i class="icon muted">Ouvert</i>
+                <h2>ss</h2>
+                <i class="icon muted">blbl</i>
             </a>
-            <a ui-sref="app.locks" class="item item-avatar item-icon-right">
-                <h2>Serrure 2</h2>
-                <p></p>
-                <i class="icon muted">Fermé</i>
+            <a ui-sref="app.locks" class="item item-avatar item-icon-right" ng-repeat="lock in locks">
+                <h2>{{lock.name}}</h2>
+                <i class="icon muted">{{lock.state}}</i>
             </a>
         </div>
     </ion-content>
