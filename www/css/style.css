@@ -60,6 +60,10 @@ p {
     content: "\f2ca";
 }
 
+.hero>.content {
+    top: 18%;
+}
+
 .item-lock{
     padding: 25px;
 }
