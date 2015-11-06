@@ -1,4 +1,4 @@
-angular.module('starter.service', ['starter.controllers.loginCtrl'])
+angular.module('starter.service', ['starter.controllers.loginCtrl', 'starter.config'])
     .service('authService', ['$http','constantService', function ($http, constantService) {
 
         urlBase = constantService.getUrl();
@@ -13,9 +13,9 @@ angular.module('starter.service', ['starter.controllers.loginCtrl'])
             return $http.post(urlBase + 'register', params );
         };
 
-    }]).service('lockService', ['$http', function ($http) {
+    }]).service('lockService', ['$http', 'constantService', function ($http, constantService) {
 
-        var urlBase = 'http://localhost:1337/api/';
+        var urlBase = constantService.getUrl();
 
         this.locks = function () {
 
@@ -27,13 +27,11 @@ angular.module('starter.service', ['starter.controllers.loginCtrl'])
             return $http.get(urlBase + 'lock', params );
         };
 
-    }]).service('constantService', function () {
-
-        var serverUrl = 'http://localhost:1337/api/';
+    }]).service('constantService', function (ENV) {
 
         this.getUrl = function() {
 
-            return serverUrl;
+            return ENV.apiEndpoint;
         };
 
     });
