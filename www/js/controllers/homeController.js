@@ -1,6 +1,6 @@
 angular.module('starter.controllers.homeCtrl', [])
 
-    .controller('HomeCtrl', function($scope, $rootScope, authService, $state, $timeout, $stateParams, ionicMaterialInk, ionicMaterialMotion) {
+    .controller('HomeCtrl', function($scope, $rootScope, $state, $timeout, $stateParams, ionicMaterialInk, ionicMaterialMotion) {
 
         // Set Header
         $scope.$parent.showHeader();
