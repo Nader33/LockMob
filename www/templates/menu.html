@@ -11,7 +11,7 @@
         <ion-nav-view name="fabContent"></ion-nav-view>
         <ion-nav-view name="menuContent" ng-class="{expanded: isExpanded}" ></ion-nav-view>
     </ion-side-menu-content>
-    <ion-side-menu side="left">
+    <ion-side-menu side="left" width="200">
         <ion-header-bar class="dark-bg expanded">
             <h2>Lockey</h2>
         </ion-header-bar>
@@ -19,9 +19,11 @@
             <ion-list>
                 <ion-item nav-clear menu-close ui-sref="app.profile">
                     Paramètres
+                    <i class="icon ion-settings" style="display: inline-block; float: right;"></i>
                 </ion-item>
                 <ion-item nav-clear menu-close href="#/app/login/logout">
-                    Déconnexion
+                    Déconnexion 
+                    <i class="icon ion-power" style="display: inline-block; float: right;"></i>
                 </ion-item>
             </ion-list>
         </ion-content>
