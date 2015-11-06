@@ -20,6 +20,7 @@ angular.module('starter.controllers.loginCtrl', [])
                     $rootScope.user = res.user;
 
                     window.localStorage.setItem("user", JSON.stringify(res.user));
+                    window.localStorage.setItem("token", res.token);
                     window.localStorage.setItem("authenticated", 1);
 
                     $scope.message = '';
@@ -34,11 +35,10 @@ angular.module('starter.controllers.loginCtrl', [])
 
         $scope.logout = function(){
 
-            console.log('logout');
-
             if($scope.isLoggedIn())
             {
                 window.localStorage.removeItem("user");
+                window.localStorage.removeItem("token");
                 window.localStorage.removeItem("authenticated");
 
                 $scope.message = '';
