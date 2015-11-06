@@ -63,3 +63,14 @@ p {
 .hero>.content {
     top: 18%;
 }
+
+.item-lock{
+    padding: 25px;
+}
+
+.tabs-dark{
+
+    height: 58px;
+    padding-top: 8px;
+}
+
