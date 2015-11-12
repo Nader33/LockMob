@@ -127,6 +127,22 @@ angular.module('starter.router', [])
             },
             authenticate: true
         })
+        .state('app.users', {
+            url: '/users',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/users.html',
+                    controller: ''
+                },
+                'fabContent': {
+                    template: '',
+                    controller: function ($timeout) {
+
+                    }
+                }
+            },
+            authenticate: true
+        })
     ;
 
     // if none of the above states are matched, use this as the fallback
