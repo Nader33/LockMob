@@ -74,6 +74,25 @@ angular.module('starter.router', [])
             },
             authenticate: true
         })
+        .state('app.lock', {
+            url: '/lock/:id',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/lock.html',
+                    controller: 'LockCtrl'
+                },
+                'fabContent': {
+                   /* template: '<button id="fab-profile" ng-controller="LockCtrl" ng-click="goToAddLock()" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-plus"></i></button>',
+                    controller: function ($timeout) {
+                        $timeout(function () {
+                            //console.log(document.getElementById('fab-profile').classList);
+                            document.getElementById('fab-profile').classList.toggle('on');
+                        }, 800);
+                    }*/
+                }
+            },
+            authenticate: true
+        })
         .state('app.add_lock', {
             url: '/add_lock',
             views: {
