@@ -108,3 +108,18 @@ div.loginbutton{
 .item-complex .item-content{
     padding: 16px 16px 16px 16px;
 }
+
+.button-add{
+    width: 100%;
+    background-color: rgb(23,180,148);
+    color: #fff;
+    font-family: RobotoDraft,Roboto,"Helvetica Neue","Segoe UI",sans-serif;
+}
+
+.button-no{
+    width: 100%;
+    background-color: rgb(207,0,73);
+    color: #fff;
+    font-family: RobotoDraft,Roboto,"Helvetica Neue","Segoe UI",sans-serif;
+}
+
