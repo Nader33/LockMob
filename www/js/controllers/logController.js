@@ -9,8 +9,11 @@ angular.module('starter.controllers.LogCtrl', [])
         $scope.$parent.setExpanded(false);
         $scope.$parent.setHeaderFab(false);
 
-        $scope.data = {
-            buttonText: 'Ajouter une serrure'
+        $scope.stateLabel = function(log){
+            if(typeof(log) != 'undefined' && log.lock){
+                return (log.lock.state) ? 'Ouvert': 'Fermé';
+            }
+            return 'Je sais pas ';
         };
 
         var logs = Logs.query(function(){
