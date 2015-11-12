@@ -24,7 +24,7 @@
                 <h2>Porte d'entrée</h2>
                 <i class="icon ion-unlocked"></i>
             </a>
-            <a ui-sref="app.locks" class="item item-lock item-icon-right" ng-repeat="lock in locks">
+            <a ui-sref='app.lock({id:lock.id})' class="item item-lock item-icon-right" ng-repeat="lock in locks">
                 <h2>{{lock.name}}</h2>
                 <i class="icon" ng-class="{'ion-locked': lock.state == true, 'ion-unlocked': lock.state == false}"></i>
             </a>
