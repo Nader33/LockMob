@@ -1,4 +1,4 @@
-<ion-view view-title="Home">
+<ion-view view-title="Serrures">
     <ion-content ng-class="{expanded:$scope.isExpanded}">
         <!--<div class="hero slide-up" style="">
             <div class="content">
@@ -20,15 +20,6 @@
         </div>
 
         <div class="list animate-fade-slide-in-right">
-            <a ui-sref="app.locks" class="item item-icon-right">
-                <h2>Porte d'entrée</h2>
-                <i class="icon ion-unlocked"></i>
-            </a>
-
-           <!-- <a ui-sref='app.lock({id:lock.id})' class="item item-lock item-icon-right" ng-repeat="lock in locks">
-                <h2>{{lock.name}}</h2>
-                <i class="icon" ng-click="toggleLock(lock)" ng-class="{'ion-locked': lock.state == true, 'ion-unlocked': lock.state == false}"></i>
-            </a>-->
             <a ui-sref='app.lock({id:lock.id})' class="item item-lock item-icon-right" ng-repeat="lock in locks">
                 <h2>{{lock.name}}</h2>
                 <i class="icon" ng-click="toggleLock(lock)" ng-class="{'ion-locked': lock.state == true, 'ion-unlocked': lock.state == false}"></i>
