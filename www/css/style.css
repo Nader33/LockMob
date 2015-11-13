@@ -36,7 +36,7 @@ p {
 
 .menu h2 {
     bottom: 0;
-    font-size: 18px;
+    font-size: 25px;
     left: 16px;
     position: absolute;
 }
@@ -123,3 +123,12 @@ div.loginbutton{
     font-family: RobotoDraft,Roboto,"Helvetica Neue","Segoe UI",sans-serif;
 }
 
+.tabs-icon-top > .tabs .tab-item, .tabs-icon-top.tabs .tab-item, .tabs-icon-bottom > .tabs .tab-item, .tabs-icon-bottom.tabs .tab-item {
+    font-size: 12px;
+
+}
+.tab-item .icon {
+    font-size: 35px;
+    margin-bottom: 2%;
+    margin-top: -2%;
+}
