@@ -14,8 +14,9 @@ angular.module('starter.controllers.LockCtrl', [])
             $state.go('app.add_lock');
         };
 
+
         io.socket.on('connect', function () {
-            io.socket.get('/lock', function (data, jwres) {
+            io.socket.get('/lock', {'token': window.localStorage.getItem('token')}, function (data, jwres) {
                 console.log('data', data);
                 console.log('jw', jwres);
                 //$scope.locks = data;
