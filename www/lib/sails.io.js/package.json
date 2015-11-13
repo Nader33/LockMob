@@ -1,0 +1,106 @@
+{
+  "_args": [
+    [
+      "sails.io.js",
+      "C:\\Users\\Tisserant\\Desktop\\ObjetConnecte\\LockMob"
+    ]
+  ],
+  "_from": "sails.io.js@*",
+  "_id": "sails.io.js@0.11.7",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/sails.io.js",
+  "_nodeVersion": "0.10.28",
+  "_npmUser": {
+    "email": "scott@balderdash.co",
+    "name": "sgress454"
+  },
+  "_npmVersion": "2.10.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "sails.io.js",
+    "raw": "sails.io.js",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "http://registry.npmjs.org/sails.io.js/-/sails.io.js-0.11.7.tgz",
+  "_shasum": "05bb3c3e17883247d19840e4c29611892852e97e",
+  "_shrinkwrap": null,
+  "_spec": "sails.io.js",
+  "_where": "C:\\Users\\Tisserant\\Desktop\\ObjetConnecte\\LockMob",
+  "author": {
+    "email": "@mikermcneil",
+    "name": "Mike McNeil",
+    "url": "http://balderdash.co/"
+  },
+  "bugs": {
+    "url": "https://github.com/balderdashy/sails.io.js/issues"
+  },
+  "dependencies": {
+    "request": "~2.34.0"
+  },
+  "description": "Javascript SDK for communicating w/ a Sails server via WebSockets/socket.io.",
+  "devDependencies": {
+    "async": "~0.9.0",
+    "grunt": "~0.4.3",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-watch": "~0.6.0",
+    "lodash": "~2.4.1",
+    "mocha": "~1.18.0",
+    "sails": "~0.11.0",
+    "socket.io-client": "~1.2.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dist": {
+    "shasum": "05bb3c3e17883247d19840e4c29611892852e97e",
+    "tarball": "http://registry.npmjs.org/sails.io.js/-/sails.io.js-0.11.7.tgz"
+  },
+  "gitHead": "16ff697ee2df8410c27f3f5f03b3b7001c2eb851",
+  "homepage": "https://github.com/balderdashy/sails.io.js",
+  "keywords": [
+    "browser",
+    "javascript",
+    "sails",
+    "sails.io.js",
+    "sdk",
+    "socket.io"
+  ],
+  "license": "MIT",
+  "main": "sails.io.js",
+  "maintainers": [
+    {
+      "name": "balderdashy",
+      "email": "mike@balderdash.co"
+    },
+    {
+      "name": "sgress454",
+      "email": "scott@balderdash.co"
+    },
+    {
+      "name": "particlebanana",
+      "email": "particlebanana@gmail.com"
+    },
+    {
+      "name": "mikermcneil",
+      "email": "michael.r.mcneil@gmail.com"
+    }
+  ],
+  "name": "sails.io.js",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/balderdashy/sails.io.js.git"
+  },
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha -b --reporter spec --timeout 10000"
+  },
+  "version": "0.11.7"
+}

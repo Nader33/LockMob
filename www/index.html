@@ -14,6 +14,7 @@
     <script src="lib/ionic-material/dist/ionic.material.min.js"></script>
     <script src="lib/ion-md-input/js/ion-md-input.min.js"></script>
     <script src="lib/angular-resource/angular-resource.min.js"></script>
+    <script src="lib/sails.io.js/sails.io.js"></script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
     <!-- your app's js -->
@@ -29,6 +30,10 @@
     <script src="js/factories/locks.js"></script>
     <script src="js/factories/logs.js"></script>
     <script src="js/factories/authInterceptor.js"></script>
+    <script type="text/javascript">
+        //TODO: change to be node compliant
+        io.sails.url = 'http://localhost:1337/';
+    </script>
 </head>
 <body ng-app="starter">
     <ion-nav-view></ion-nav-view>

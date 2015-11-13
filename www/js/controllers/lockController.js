@@ -14,6 +14,17 @@ angular.module('starter.controllers.LockCtrl', [])
             $state.go('app.add_lock');
         };
 
+        io.socket.on('connect', function () {
+            io.socket.get('/lock', function (data, jwres) {
+                console.log('data', data);
+                console.log('jw', jwres);
+                //$scope.locks = data;
+            });
+            io.socket.on('lock', function (msg) {
+                console.log('msg', msg);
+            });
+        });
+
         $scope.data = {
             buttonText: 'Ajouter une serrure'
         };
@@ -25,7 +36,10 @@ angular.module('starter.controllers.LockCtrl', [])
 
         };
 
-        var locks = Locks.query(function(){
+        $scope.$on('$ionicView.beforeEnter', function () {
+            console.log('llll');
+            var locks = Locks.query();
+
             $scope.locks = locks;
         });
 
@@ -50,6 +64,7 @@ angular.module('starter.controllers.LockCtrl', [])
                 $state.go('app.locks');
             }else{
                 $scope.lock.$save(function(){
+
                     $scope.locks.push(lock);
                     $scope.lock = new Lock();
                 });
