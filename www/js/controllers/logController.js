@@ -9,8 +9,11 @@ angular.module('starter.controllers.LogCtrl', [])
         $scope.$parent.setExpanded(false);
         $scope.$parent.setHeaderFab(false);
 
-        $scope.data = {
-            buttonText: 'Ajouter une serrure'
+        $scope.stateLabel = function(log){
+            if(typeof(log) != 'undefined' && log.lock){
+                return (log.lock.state) ? 'Ouvert': 'Fermé';
+            }
+            return 'Je sais pas ';
         };
 
         var logs = Logs.query(function(){
@@ -18,21 +21,21 @@ angular.module('starter.controllers.LogCtrl', [])
         });
 
         //$scope.logs = new Logs();
-        $scope.lock = new Log();
+        $scope.log = new Log();
 
-        $scope.create = function(lock){
-            //$ionicListDelegate.$getByHandle('lock-list').showReorder(true);
-            if(lock.id){
-                $scope.lock.$update(function(){
-                    $scope.lock = new Log();
+        $scope.create = function(log){
+            //$ionicListDelegate.$getByHandle('log-list').showReorder(true);
+            if(log.id){
+                $scope.log.$update(function(){
+                    $scope.log = new Log();
 
                 });
                 $state.go('app.logs');
             }else{
-                $scope.lock.$save(function(){
-                    $scope.logs.push(lock);
-                    console.log('lock saved');
-                    $scope.lock = new Log();
+                $scope.log.$save(function(){
+                    $scope.logs.push(log);
+                    console.log('log saved');
+                    $scope.log = new Log();
                 });
                 $state.go('app.logs');
             }

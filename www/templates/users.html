@@ -1,4 +1,4 @@
-<ion-view view-title="Notifications">
+<ion-view view-title="Utilisateurs">
     <ion-content ng-class="{expanded:$scope.isExpanded}">
         <!--<div class="hero slide-up" style="">
             <div class="content">
@@ -20,10 +20,10 @@
         </div>
 
         <div class="list animate-fade-slide-in-right">
-
-            <span class="item item-lock item-icon-right" ng-repeat="log in logs">
-                <h2>{{log.lock.name}} est {{stateLabel(log)}} par {{log.user.username}}</h2>
-            </span>
+            <a ui-sref='app.lock({id:lock.id})' class="item item-lock item-icon-right" ng-repeat="lock in locks">
+                <h2>{{lock.name}}</h2>
+                <i class="icon" ng-class="{'ion-locked': lock.state == true, 'ion-unlocked': lock.state == false}"></i>
+            </a>
         </div>
 
     </ion-content>

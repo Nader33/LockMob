@@ -14,16 +14,43 @@ angular.module('starter.controllers.LockCtrl', [])
             $state.go('app.add_lock');
         };
 
+        io.socket.on('connect', function () {
+            io.socket.get('/lock', function (data, jwres) {
+                console.log('data', data);
+                console.log('jw', jwres);
+                //$scope.locks = data;
+            });
+            io.socket.on('lock', function (msg) {
+                console.log('msg', msg);
+            });
+        });
+
         $scope.data = {
             buttonText: 'Ajouter une serrure'
         };
 
-        var locks = Locks.query(function(){
+        $scope.toggleLock = function(lock){
+            lock.state = !lock.state;
+            Lock.update(lock, function(){
+            })
+
+        };
+        $scope.$on('$ionicView.beforeEnter', function () {
+            console.log('llll');
+            var locks = Locks.query();
             $scope.locks = locks;
         });
 
+        if($stateParams.id){
+            console.log($stateParams.id);
+            var lock = Lock.get({id: $stateParams.id},function(){
+                $scope.lock = lock.lock[0];
+            });
+        }
+        else{
+            $scope.lock = new Lock();
+        }
         //$scope.locks = new Locks();
-        $scope.lock = new Lock();
 
         $scope.create = function(lock){
             //$ionicListDelegate.$getByHandle('lock-list').showReorder(true);
@@ -35,8 +62,7 @@ angular.module('starter.controllers.LockCtrl', [])
                 $state.go('app.locks');
             }else{
                 $scope.lock.$save(function(){
-                    $scope.locks.push(lock);
-                    console.log('lock saved');
+                    //$scope.locks.push(lock);
                     $scope.lock = new Lock();
                 });
                 $state.go('app.locks');

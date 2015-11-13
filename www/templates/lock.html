@@ -1,4 +1,4 @@
-<ion-view view-title="Notifications">
+<ion-view view-title="{{lock.name}}">
     <ion-content ng-class="{expanded:$scope.isExpanded}">
         <!--<div class="hero slide-up" style="">
             <div class="content">
@@ -20,9 +20,8 @@
         </div>
 
         <div class="list animate-fade-slide-in-right">
-
             <span class="item item-lock item-icon-right" ng-repeat="log in logs">
-                <h2>{{log.lock.name}} est {{stateLabel(log)}} par {{log.user.username}}</h2>
+                <h2>{{log.name}}</h2>
             </span>
         </div>
 
