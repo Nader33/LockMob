@@ -26,12 +26,11 @@ p {
 
 /* Menu
 ==================================*/
-.menu .bar.bar-header.expanded {
-    transition: all .5s ease-in-out;
-}
 
 .menu-open .bar.bar-header.expanded {
     background-color: rgb(23,180,148);
+    background-position: 0;
+    background-size: 0;
 }
 
 .menu h2 {
