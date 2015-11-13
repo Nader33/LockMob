@@ -20,6 +20,7 @@
         </div>
 
         <div class="list animate-fade-slide-in-right">
+
             <a ui-sref='app.lock({id:lock.id})' class="item item-lock item-icon-right" ng-repeat="lock in locks">
                 <h2>{{lock.name}}</h2>
                 <i class="icon" ng-class="{'ion-locked': lock.state == true, 'ion-unlocked': lock.state == false}"></i>
