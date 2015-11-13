@@ -35,9 +35,11 @@ angular.module('starter.controllers.LockCtrl', [])
             })
 
         };
+
         $scope.$on('$ionicView.beforeEnter', function () {
             console.log('llll');
             var locks = Locks.query();
+
             $scope.locks = locks;
         });
 
@@ -62,7 +64,8 @@ angular.module('starter.controllers.LockCtrl', [])
                 $state.go('app.locks');
             }else{
                 $scope.lock.$save(function(){
-                    //$scope.locks.push(lock);
+
+                    $scope.locks.push(lock);
                     $scope.lock = new Lock();
                 });
                 $state.go('app.locks');
