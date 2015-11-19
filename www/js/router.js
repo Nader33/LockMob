@@ -98,7 +98,7 @@ angular.module('starter.router', [])
             views: {
                 'menuContent': {
                     templateUrl: 'templates/add_lock.html',
-                    controller: 'LockCtrl'
+                    controller: 'AddLockCtrl'
                 },
                 'fabContent': {
                     template: '<a ui-sref="app.add_lock" id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-plus"></i></a>',

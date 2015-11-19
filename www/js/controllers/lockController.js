@@ -1,6 +1,6 @@
 angular.module('starter.controllers.LockCtrl', [])
 
-    .controller('LockCtrl', function($scope, $rootScope, $state, $timeout, $stateParams, ionicMaterialInk, ionicMaterialMotion, Locks, Lock) {
+    .controller('LockCtrl', function($scope, $rootScope, $state, $timeout, $stateParams, ionicMaterialInk, ionicMaterialMotion, Locks, Lock, lockService) {
 
         // Set Header
         $scope.$parent.showHeader();
@@ -8,6 +8,7 @@ angular.module('starter.controllers.LockCtrl', [])
         $scope.isExpanded = false;
         $scope.$parent.setExpanded(false);
         $scope.$parent.setHeaderFab(false);
+        $scope.locks = lockService.populate();
 
         $scope.goToAddLock = function(){
 
@@ -16,13 +17,17 @@ angular.module('starter.controllers.LockCtrl', [])
 
 
         io.socket.on('connect', function () {
-            io.socket.get('/lock', {'token': window.localStorage.getItem('token')}, function (data, jwres) {
-                console.log('data', data);
-                console.log('jw', jwres);
-                //$scope.locks = data;
+            io.socket.get('/api/locks', {'token': window.localStorage.getItem('token')}, function (data, jwres) {
+                lockService.locks = data;
+                $scope.locks = lockService.locks;
+                console.log('Lock', $scope.locks);
             });
-            io.socket.on('lock', function (msg) {
-                console.log('msg', msg);
+
+            io.socket.on('lock', function (res) {
+                $scope.locks.push(res.data);
+
+                //console.log('res', res.data);
+                console.log('socket on', $scope.locks);
             });
         });
 
@@ -38,10 +43,14 @@ angular.module('starter.controllers.LockCtrl', [])
         };
 
         $scope.$on('$ionicView.beforeEnter', function () {
-            console.log('llll');
-            var locks = Locks.query();
+            console.log('refresh');
+           /* var locks = Locks.query().$promise.then(function(locks){
+                $scope.locks = locks;
+                console.warn($scope.locks);
+            });*/
 
-            $scope.locks = locks;
+            $scope.locks = lockService.locks
+
         });
 
         if($stateParams.id){
@@ -66,7 +75,7 @@ angular.module('starter.controllers.LockCtrl', [])
             }else{
                 $scope.lock.$save(function(){
 
-                    $scope.locks.push(lock);
+                    //lockService.locks.push(lock);
                     $scope.lock = new Lock();
                 });
                 $state.go('app.locks');
