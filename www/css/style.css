@@ -42,7 +42,7 @@ p {
     color: #fff
 }
 
-.item-lock:hover{
+.locks:hover{
     background-color: rgb(224, 224, 224);
 }
 
@@ -84,6 +84,9 @@ p {
 
 .item-lock{
     padding: 25px;
+    display: inline-block;
+    width: 80%;
+
 }
 
 .tabs-dark{
@@ -149,4 +152,16 @@ div.loginbutton{
     font-size: 35px;
     margin-bottom: 2%;
     margin-top: -2%;
+}
+
+.icon-lock{
+   width: 17%;
+    text-align: center;
+    vertical-align: top;
+    padding-top: 5%;
+    font-size: 28px;
+    display: inline-block;
+}
+
+.locks{
 }
