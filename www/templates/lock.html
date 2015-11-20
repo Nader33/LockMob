@@ -19,11 +19,12 @@
             </a>
         </div>
 
-        <div class="list animate-fade-slide-in-right">
-            <span class="item item-lock item-icon-right" ng-repeat="log in logs">
-                <h2>{{log.name}}</h2>
-            </span>
-        </div>
-
+        <form ng-submit="delete(lock)">
+            <div class="list">
+                <div class="padding">
+                    <button class="button button-add  " type="submit">{{data.buttonSuppr}}</button>
+                </div>
+            </div>
+        </form>
     </ion-content>
 </ion-view>
