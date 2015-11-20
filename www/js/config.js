@@ -6,3 +6,5 @@ angular.module('starter.config', [])
         'name': 'dev',
         'apiEndpoint': 'http://localhost:1337/api/'
     });
+
+io.sails.url = 'http://localhost:1337/';
