@@ -46,7 +46,7 @@ p {
     background-color: rgb(224, 224, 224);
 }
 
-.menu-open .bar.bar-header.expanded {
+.menu-open .bar.bar-header.expanded { 
     background-color: rgb(23,180,148);
     background-position: 0;
     background-size: 0;
