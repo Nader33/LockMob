@@ -13,6 +13,8 @@ angular.module('starter.factory', [])
         return $resource(urlBase + 'lock/:id', {id: '@id'}, {
             update: {
                 method: 'PUT'
-            }
+            },
+            'delete': {method: 'DELETE'},
+            'update': {method: 'PUT'}
         });
     });

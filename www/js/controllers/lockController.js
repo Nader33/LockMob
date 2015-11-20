@@ -36,7 +36,8 @@ angular.module('starter.LockCtrl', [])
 
         $scope.data = {
             buttonText: 'Ajouter une serrure',
-            buttonSuppr:'Supprimer la serrure'
+            buttonSuppr:'Supprimer la serrure',
+            buttonUpdate: 'Modifier la serrure'
         };
 
         $scope.toggleLock = function(lock){
@@ -94,6 +95,13 @@ angular.module('starter.LockCtrl', [])
             //$ionicListDelegate.$getByHandle('lock-list').showReorder(true);
             if(lock.id){
                Lock.delete({}, {'id': lock.id});
+            }
+            $state.go('app.locks');
+        };
+
+        $scope.update = function(lock){
+            if(lock.id){
+               Lock.update({'name': lock.name}, {'id': lock.id});
             }
             $state.go('app.locks');
         };
