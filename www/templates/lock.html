@@ -18,7 +18,18 @@
                 <i class="icon ion-person"></i> Utilisateurs
             </a>
         </div>
-
+        
+        <form ng-submit="update(lock)">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" placeholder="Nom de la serrure" ng-model="lock.name"/>
+                </label>
+                <div class="padding">
+                    <button class="button button-add  " type="submit">{{data.buttonUpdate}}</button>
+                </div>
+            </div>
+        </form>
+        
         <form ng-submit="delete(lock)">
             <div class="list">
                 <div class="padding">
