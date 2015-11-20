@@ -27,7 +27,7 @@ angular.module('starter.LockCtrl', [])
                 lockService.push(res.data);
                 //$scope.locks = lockService.locks;
                 //$scope.locks.length = 0;
-                $scope.locks.push({name: 'test', state: false});
+                //$scope.locks.push({name: 'test', state: false});
                 $scope.$apply();
                 console.log('res', res.data);
                 console.log('socket on', $scope.locks);
@@ -54,6 +54,7 @@ angular.module('starter.LockCtrl', [])
             lockService.populate().then(function(e){
                 $scope.locks = e;
                 console.warn('st', e, lockService.locks);
+
 
             });
 
@@ -92,9 +93,6 @@ angular.module('starter.LockCtrl', [])
          $scope.delete = function(lock){
             //$ionicListDelegate.$getByHandle('lock-list').showReorder(true);
             if(lock.id){
-            //   $scope.locks[lock.id].$delete(function(){
-             //       console.log('Porte supprimé');
-               // });
                Lock.delete({}, {'id': lock.id});
             }
             $state.go('app.locks');
