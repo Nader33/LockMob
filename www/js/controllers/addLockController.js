@@ -26,7 +26,7 @@ angular.module('starter.controllers.AddLockCtrl', [])
                 $scope.lock.$save(function(){
 
                     console.log('lock', lock);
-                    lockService.locks.push(lock);
+                    lockService.push(lock);
                     //$scope.lock = new Lock();
                 });
                 $state.go('app.locks');

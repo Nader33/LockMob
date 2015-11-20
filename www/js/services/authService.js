@@ -1,4 +1,4 @@
-angular.module('starter.service', ['starter.controllers.loginCtrl','starter.controllers.LockCtrl', 'starter.config'])
+angular.module('starter.service', ['starter.controllers','starter.LockCtrl', 'starter.config'])
     .service('authService', ['$http','constantService', function ($http, constantService) {
 
         urlBase = constantService.getUrl();

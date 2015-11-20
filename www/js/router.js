@@ -5,12 +5,13 @@ angular.module('starter.router', [])
     // Turn off caching for demo simplicity's sake
     $ionicConfigProvider.views.maxCache(0);
 
-    /*
-     // Turn off back button text
-     $ionicConfigProvider.backButton.previousTitleText(false);
-     */
+        /*
+         // Turn off back button text
+         $ionicConfigProvider.backButton.previousTitleText(false);
+         */
 
-    $stateProvider.state('app', {
+    $stateProvider
+        .state('app', {
         url: '/app',
         abstract: true,
         templateUrl: 'templates/menu.html',
@@ -63,7 +64,8 @@ angular.module('starter.router', [])
                     controller: 'LockCtrl'
                 },
                 'fabContent': {
-                    template: '<button id="fab-profile" ng-controller="LockCtrl" ng-click="goToAddLock()" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-plus"></i></button>',
+                    template: '<button id="fab-profile" ui-sref="app.add_lock" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-plus"></i></button>',
+                    //template: '',
                     controller: function ($timeout) {
                         $timeout(function () {
                             //console.log(document.getElementById('fab-profile').classList);
@@ -82,13 +84,6 @@ angular.module('starter.router', [])
                     controller: 'LockCtrl'
                 },
                 'fabContent': {
-                   /* template: '<button id="fab-profile" ng-controller="LockCtrl" ng-click="goToAddLock()" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-plus"></i></button>',
-                    controller: function ($timeout) {
-                        $timeout(function () {
-                            //console.log(document.getElementById('fab-profile').classList);
-                            document.getElementById('fab-profile').classList.toggle('on');
-                        }, 800);
-                    }*/
                 }
             },
             authenticate: true
@@ -103,9 +98,6 @@ angular.module('starter.router', [])
                 'fabContent': {
                     template: '<a ui-sref="app.add_lock" id="fab-profile" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-plus"></i></a>',
                     controller: function ($timeout) {
-                        /*$timeout(function () {
-                         document.getElementById('fab-profile').classList.toggle('on');
-                         }, 800);*/
                     }
                 }
             },

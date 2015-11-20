@@ -1,4 +1,4 @@
-angular.module('starter.controllers.LockCtrl', [])
+angular.module('starter.LockCtrl', [])
 
     .controller('LockCtrl', function($scope, $rootScope, $state, $timeout, $stateParams, ionicMaterialInk, ionicMaterialMotion, Locks, Lock, lockService) {
 
@@ -8,25 +8,28 @@ angular.module('starter.controllers.LockCtrl', [])
         $scope.isExpanded = false;
         $scope.$parent.setExpanded(false);
         $scope.$parent.setHeaderFab(false);
-        $scope.locks = lockService.populate();
+        $scope.locks = [];
 
         $scope.goToAddLock = function(){
 
             $state.go('app.add_lock');
         };
 
-
         io.socket.on('connect', function () {
             io.socket.get('/api/locks', {'token': window.localStorage.getItem('token')}, function (data, jwres) {
                 lockService.locks = data;
-                $scope.locks = lockService.locks;
+                //$scope.locks = lockService.locks;
                 console.log('Lock', $scope.locks);
             });
 
             io.socket.on('lock', function (res) {
-                $scope.locks.push(res.data);
-
-                //console.log('res', res.data);
+                //$scope.locks.push(res.data);
+                lockService.push(res.data);
+                //$scope.locks = lockService.locks;
+                //$scope.locks.length = 0;
+                $scope.locks.push({name: 'test', state: false});
+                $scope.$apply();
+                console.log('res', res.data);
                 console.log('socket on', $scope.locks);
             });
         });
@@ -44,13 +47,16 @@ angular.module('starter.controllers.LockCtrl', [])
 
         $scope.$on('$ionicView.beforeEnter', function () {
             console.log('refresh');
-           /* var locks = Locks.query().$promise.then(function(locks){
-                $scope.locks = locks;
-                console.warn($scope.locks);
-            });*/
 
-            $scope.locks = lockService.locks
+            //$scope.locks = lockService.locks;
 
+            lockService.populate().then(function(e){
+                $scope.locks = e;
+                console.warn('st', e, lockService.locks);
+
+            });
+
+            console.log('s', $scope.locks);
         });
 
         if($stateParams.id){

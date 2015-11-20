@@ -5,10 +5,16 @@ angular.module('starter.service')
         this.locks = [];
 
         this.populate = function(){
-            Locks.query().$promise.then(function(locks){
+            return Locks.query().$promise.then(function(locks){
+                // Don't work
                 this.locks = locks;
                 console.warn(this.locks);
+                return locks;
             });
+        }
+
+        this.push = function(obj){
+            this.locks.push(obj);
         }
 
     });
