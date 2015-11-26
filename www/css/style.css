@@ -161,6 +161,7 @@ div.loginbutton{
     line-height: 60px;
     font-size: 28px;
     display: inline-block;
+    transition-delay: 0.23s;
 }
 
 .locks{
