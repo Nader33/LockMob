@@ -135,6 +135,22 @@ angular.module('starter.router', [])
             },
             authenticate: true
         })
+        .state('app.profile', {
+            url: '/profile',
+            views: {
+                'menuContent': {
+                    templateUrl: 'templates/app.profile.html',
+                    controller: ''
+                },
+                'fabContent': {
+                    template: '<button id="fab-profile" ui-sref="app.locks" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-arrow-left-c"></i></button>',
+                    controller: function ($timeout) {
+
+                    }
+                }
+            },
+            authenticate: true
+        })
     ;
 
     // if none of the above states are matched, use this as the fallback

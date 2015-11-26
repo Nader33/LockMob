@@ -22,10 +22,10 @@
        
         <div class="list animate-fade-slide-in-right">
            <div class="locks" ng-repeat="lock in locks">
-                     <a ui-sref='app.lock({id:lock.id})' class="item item-lock item-icon-right">
-                        <h2>{{lock.name}}</h2>
-                     </a>
-                    <i class="icon-lock" ng-click="toggleLock(lock)" ng-class="{'ion-locked': lock.state == true, 'ion-unlocked': lock.state == false}"></i>
+             <a ui-sref='app.lock({id:lock.id})' class="item item-lock item-icon-right">
+                <h2>{{lock.name}}</h2>
+             </a>
+            <i class="icon-lock" ng-click="toggleLock(lock)" ng-class="{'ion-locked': lock.state == true, 'ion-unlocked': lock.state == false}"></i>
         </div>
     </div>
 
