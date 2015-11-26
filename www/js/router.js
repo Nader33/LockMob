@@ -139,8 +139,8 @@ angular.module('starter.router', [])
             url: '/profile',
             views: {
                 'menuContent': {
-                    templateUrl: 'templates/app.profile.html',
-                    controller: ''
+                    templateUrl: 'templates/profile.html',
+                    controller: 'UserCtrl'
                 },
                 'fabContent': {
                     template: '<button id="fab-profile" ui-sref="app.locks" class="button button-fab button-fab-bottom-right button-energized-900" ><i class="icon ion-arrow-left-c"></i></button>',

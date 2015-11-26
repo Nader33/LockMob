@@ -24,11 +24,36 @@ angular.module('starter.LockCtrl', [])
 
             io.socket.on('lock', function (res) {
                 //$scope.locks.push(res.data);
-                lockService.push(res.data);
-                //$scope.locks = lockService.locks;
+
+                console.log('verb',res.verb);
+
+                switch(res.verb){
+                    case 'created':
+                        lockService.push(res.data);
+                        $scope.locks = lockService.locks;
+                    case 'updated':
+                    case 'deleted':
+                        lockService.populate().then(function(e){
+                            $scope.locks = e;
+                        });
+                }
                 //$scope.locks.length = 0;
                 //$scope.locks.push({name: 'test', state: false});
                 $scope.$apply();
+                $timeout(function () {
+                    ionicMaterialMotion.slideUp({
+                        selector: '.slide-up'
+                    });
+                }, 300);
+
+                $timeout(function () {
+                    ionicMaterialMotion.fadeSlideInRight({
+                        startVelocity: 3000
+                    });
+                }, 700);
+
+                // Set Ink
+                ionicMaterialInk.displayEffect();
                 console.log('res', res.data);
                 console.log('socket on', $scope.locks);
             });
